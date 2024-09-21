@@ -1,13 +1,17 @@
-# FastAPI Project
+# Project
 
-This project is a FastAPI application that allows users to interact with an assistant through a web interface.
+This project demonstrate how to easily use OpenAI Assistant API to test and 'fake' a chatbot with advanced function like updating a profile, viewing the profile and browsing a marketplace.
+
+The assistant, its prompt and the tools it uses are all defined from the Openai Assistant dashboard.
+
+The assistant created is called from within the app using its ID.
 
 ## Installation
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/yourrepository.git
-    cd yourrepository
+    git clone git@github.com:vgkienzler/aiem-fake-it.git 
+    cd aiem-fake-it
     ```
 
 2. Create a virtual environment:
@@ -39,12 +43,12 @@ This project is a FastAPI application that allows users to interact with an assi
 
 2. Open your browser and navigate to `http://127.0.0.1:8000` to access the application.
 
-## What the App Does
+## What the App Does (or pretend it does)
 
-This FastAPI application allows users to:
+This application allows users to:
 
-- **Submit Profile**: Submit a profile once all questions have been answered.
-- **View Profile**: View the user's profile.
-- **Browse Market**: Browse available offers, listings, or products in the marketplace.
+- **Submit Profile**: Submit a profile once all questions have been answered (it calls the submit_profile tool of the assistant).
+- **View Profile**: View the user's profile (it calls the view_profile tool of the assistant).
+- **Browse Market**: Browse available offers, listings, or products in the marketplace (it calls the browse_market tool of the assistant).
 
-The application uses OpenAI and LangChain APIs to provide assistant functionalities.
+The application uses OpenAI Assistant and LangChain APIs to provide assistant functionalities.
