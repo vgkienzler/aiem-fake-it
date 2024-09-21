@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's fake it until we make it</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        #chat-container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+            height: 400px;
+            overflow-y: auto;
+        }
+        .message {
+            margin-bottom: 10px;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .user {
+            background-color: #e6f3ff;
+            text-align: right;
+        }
+        .assistant {
+            background-color: #f0f0f0;
+        }
+        form {
+            display: flex;
+        }
+        input[type="text"] {
+            flex-grow: 1;
+            padding: 10px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+        }
+        .title-container {
+            display: flex;
+            align-items: center;
+        }
+        .title-container img {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="title-container">
+        <img src="/static/AIMakerspace.webp" alt="Title Image" width="50" height="50">
+        <h1>Let's fake it until we make it</h1>
+    </div>
+    <div id="chat-container">
+        {% for message in conversation|reverse %}
+            <div class="message {{ message.role }}">
+                <strong>{{ message.role|title }}:</strong> {{ message.content[0].text.value }}
+            </div>
+        {% endfor %}
+    </div>
+    <form id="chat-form" method="post">
+        <input type="text" id="message-input" name="message" placeholder="Type your message..." required>
+        <input type="submit" value="Send">
+    </form>
+    <script>
+        // Scroll to the bottom of the chat container
+        const chatContainer = document.getElementById('chat-container');
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+    </script>
+</body>
+</html>
